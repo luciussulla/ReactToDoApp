@@ -11,7 +11,7 @@ class App extends Component {
         id: 0, 
         text: "Zagrać w wiedzimna 3",
         date: "2022-02-15",
-        important: true, 
+        important: false, 
         active: true, 
         finishDate: null
       },
@@ -49,6 +49,7 @@ class App extends Component {
     const changedStatusTasks = tasks.map(task=> {
       if(task.id===id) {
         task.active = false
+        task.finishDate = new Date().getTime()
         return task
       } else {
         return task
