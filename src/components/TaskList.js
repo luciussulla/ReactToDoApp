@@ -11,6 +11,9 @@ const TaskList = (props)=> {
      task.active ? activeTasks.push(processedTask) : doneTasks.push(processedTask)
   })
 
+  doneTasks.sort((a,b)=> a-b)
+  activeTasks.sort((a,b)=> a.text.toLowerCase < b.text.toLowerCase)
+
   return ( 
     <>
     <div className="active">

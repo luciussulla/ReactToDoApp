@@ -9,7 +9,7 @@ class App extends Component {
     tasks: [
       {
         id: 0, 
-        text: "Zagrać w wiedzimna 3",
+        text: "Nie grać w wiedzimna 3",
         date: "2022-02-15",
         important: false, 
         active: true, 
@@ -17,7 +17,7 @@ class App extends Component {
       },
       {
         id: 1, 
-        text: "Zagrać w wiedzimna 3",
+        text: "Kupić nowy dom",
         date: "2021-08-15",
         important: true, 
         active: true, 

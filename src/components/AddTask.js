@@ -49,7 +49,7 @@ class AddTask extends Component {
      const newObj = {
       id: new Date().getTime(),
       text: this.state.text,
-      date: this.state.finishDate,
+      date: new Date().getTime(),
       important: this.state.important, 
       active: true, 
       finishDate: this.state.finishDate,
