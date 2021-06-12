@@ -7,7 +7,7 @@ const TaskList = (props)=> {
   const doneTasks = []
 
   props.tasks.map(task=>{
-     const processedTask = <Task changeTaskStatus={props.changeTaskStatus} deleteTask={props.deleteTask} key={task.id} task={task}/> 
+     const processedTask = <Task changeTaskStatus={props.changeTaskStatus} deleteTask={props.deleteTask} key={task.id} task={task} /> 
      task.active ? activeTasks.push(processedTask) : doneTasks.push(processedTask)
   })
 

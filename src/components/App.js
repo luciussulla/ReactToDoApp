@@ -55,14 +55,22 @@ class App extends Component {
       tasks: changedStatusTasks
     })
   }
-  
+
+  addTask = (newTaskObj) => {
+    console.log(newTaskObj)
+    const tasksPlusNewTask = [...this.state.tasks,newTaskObj]
+    this.setState({
+      tasks: tasksPlusNewTask
+    })
+  }
+
   render(){
-    console.log(this.state.tasks)
+    // console.log(this.state.tasks)
     return (
       <div className="App">
         <p>ToDoApp</p>
-        <AddTask/>
-        <TaskList changeTaskStatus={this.changeTaskStatus} tasks={this.state.tasks} deleteTask={this.deleteTask}/>
+        <AddTask addTask={this.addTask}/>
+        <TaskList changeTaskStatus={this.changeTaskStatus} tasks={this.state.tasks} deleteTask={this.deleteTask} addTask={this.addTask} />
       </div>
     );
   }

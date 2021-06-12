@@ -42,6 +42,28 @@ class AddTask extends Component {
       //     console.log("choice not valid")
       // }
    }
+
+   handleClick = (e) => {
+     e.preventDefault()
+     console.log("Dodano task")
+     const newObj = {
+      id: new Date().getTime(),
+      text: this.state.text,
+      date: this.state.finishDate,
+      important: this.state.important, 
+      active: true, 
+      finishDate: this.state.finishDate,
+    }
+    //  this.props.addTask(
+
+    //  )    
+    this.props.addTask(newObj)
+    this.setState({
+      text: '', 
+      finishDate: this.minDate,
+      important: false, 
+    })
+   }
     
     render() {
       let maxDate = this.minDate.slice(0,4)*1 + 1
@@ -57,6 +79,7 @@ class AddTask extends Component {
           <br/>
           <label>Do kiedy zrobić:</label>
           <input type="date" min={this.minDate} max={maxDate} name="finishDate" onChange={this.universalHandler} value={this.state.finishDate} />
+          <button onClick={this.handleClick}>Dodaj</button>
         </form>
       </>
      )
