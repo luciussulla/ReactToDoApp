@@ -32,20 +32,38 @@ class App extends Component {
         finishDate: null
       }
     ]
-  }
+  }  
 
   deleteTask = (id) => {
     console.log("delete "+id)
+    const tasks = [...this.state.tasks]
+    const newTasks = tasks.filter(task => task.id!==id)
+    this.setState({
+      tasks: newTasks
+    })
   }
 
   changeTaskStatus = (id) => {
-    console.log("change w komponencie App " + id)
+    console.log("change w komponencie App "+id)
+    const tasks = [...this.state.tasks]
+    const changedStatusTasks = tasks.map(task=> {
+      if(task.id===id) {
+        task.active = false
+        return task
+      } else {
+        return task
+      }
+    })
+    this.setState({
+      tasks: changedStatusTasks
+    })
   }
 
   render(){
+    console.log(this.state.tasks)
     return (
       <div className="App">
-        ToDoApp
+        <p>ToDoApp</p>
         <AddTask/>
         <TaskList changeTaskStatus={this.changeTaskStatus} tasks={this.state.tasks} deleteTask={this.deleteTask}/>
       </div>
