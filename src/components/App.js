@@ -35,7 +35,6 @@ class App extends Component {
   }  
 
   deleteTask = (id) => {
-    console.log("delete "+id)
     const tasks = [...this.state.tasks]
     const newTasks = tasks.filter(task => task.id!==id)
     this.setState({
@@ -44,22 +43,19 @@ class App extends Component {
   }
 
   changeTaskStatus = (id) => {
-    console.log("change w komponencie App "+id)
     const tasks = [...this.state.tasks]
     const changedStatusTasks = tasks.map(task=> {
       if(task.id===id) {
         task.active = false
         task.finishDate = new Date().getTime()
-        return task
-      } else {
-        return task
-      }
+      } 
+      return task
     })
     this.setState({
       tasks: changedStatusTasks
     })
   }
-
+  
   render(){
     console.log(this.state.tasks)
     return (
